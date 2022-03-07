@@ -1,0 +1,16 @@
+{
+  "extends": "@sapphire/ts-config/tsconfig.json",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "lib": ["DOM"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "tsBuildInfoFile": "dist/.tsbuildinfo",
+    "baseUrl": ".",
+
+    "resolveJsonModule": true,
+    "composite": true
+  },
+  "include": ["src", "src/config/config.json"],
+  "exclude": ["node_modules"]
+}
