@@ -5,7 +5,7 @@ const client = new Manager("dist/Bot.js", {
   totalShards: "auto",
   totalClusters: 1,
   mode: "process",
-  token: process.env.token,
+  token: process.env.TOKEN,
 });
 
 client.on("clusterCreate", (cluster) =>
