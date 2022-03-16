@@ -1,7 +1,7 @@
 import { Manager } from "discord-hybrid-sharding";
 import "./lib/setup/index";
 
-const client = new Manager("dist/bot.js", {
+const client = new Manager("dist/Bot.js", {
   totalShards: "auto",
   totalClusters: 1,
   mode: "process",
