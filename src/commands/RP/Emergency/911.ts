@@ -94,7 +94,7 @@ export default class extends Command {
           )
           .setFooter({
             text: `TLRP Helper | v${
-              require("../../../package.json").version as string
+              require("../../../../package.json").version as string
             }`,
           });
         interaction.reply({embeds: [embed]});
