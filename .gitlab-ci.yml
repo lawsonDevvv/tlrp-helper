@@ -1,0 +1,8 @@
+install dependancies:
+  script:
+    - yarn install
+
+build:
+  image: node:15
+  script:
+    - yarn build
