@@ -10,7 +10,7 @@ export const editsnipes = new Map<string, Message[]>();
 
 const client = new LawsonClient();
 
-export const prisma = new PrismaClient();
+// export const prisma = new PrismaClient();
 
 async function main() {
   try {
