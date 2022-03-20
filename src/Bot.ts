@@ -1,10 +1,6 @@
 import type { Message } from "discord.js";
 import { LawsonClient } from "./lib/LawsonClient";
-import { PrismaClient } from "@prisma/client";
 import { container } from "@sapphire/framework";
-// import { container } from "@sapphire/framework";
-// import { Client } from "discord-hybrid-sharding";
-
 export const snipes = new Map<string, Message>();
 export const editsnipes = new Map<string, Message[]>();
 
@@ -20,11 +16,14 @@ async function main() {
     // prisma.$connect().then(() => {
     //   container.logger.info("Connected to Database.")
     // });
+
+    container.logger.info("Up.")
   } catch (error) {
     client.logger.fatal(
       "I had an issue trying to initialize! The issue should be somewhere below this line."
     );
     console.error(error);
+    container.logger.error("Down.")
   }
 }
 
