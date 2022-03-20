@@ -17,9 +17,9 @@ async function main() {
     client.logger.info("Attempting to login...");
     await client.login(process.env.token ?? "0");
     client.logger.info("Successfully Logged In ✅");
-    prisma.$connect().then(() => {
-      container.logger.info("Connected to Database.")
-    });
+    // prisma.$connect().then(() => {
+    //   container.logger.info("Connected to Database.")
+    // });
   } catch (error) {
     client.logger.fatal(
       "I had an issue trying to initialize! The issue should be somewhere below this line."
