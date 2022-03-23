@@ -11,7 +11,7 @@ const client = new LawsonClient();
 async function main() {
   try {
     client.logger.info("Attempting to login...");
-    await client.login(process.env.token ?? "0");
+    await client.login(process.env.TOKEN ?? "0");
     client.logger.info("Successfully Logged In ✅");
     // prisma.$connect().then(() => {
     //   container.logger.info("Connected to Database.")
