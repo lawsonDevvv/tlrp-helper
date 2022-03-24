@@ -1,5 +1,6 @@
 install dependancies:
   script:
+    - npm i -g yarn typescript
     - yarn install
 
 build:
