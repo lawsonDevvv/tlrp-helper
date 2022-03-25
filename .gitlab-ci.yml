@@ -1,4 +1,5 @@
 install dependancies:
+  image: node:15
   script:
     - npm i -g yarn typescript
     - yarn install
