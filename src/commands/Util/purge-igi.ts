@@ -23,12 +23,16 @@ export default class extends Command {
       "898661401399291914"
     ) as TextChannel;
 
-    const messages = await channel.messages.fetch();
+    const messages = await channel.messages.fetch({ limit: 100 });
 
     const deletable = messages.filter((message) => !message.pinned);
 
     await channel.bulkDelete(deletable);
 
-    await interaction.reply("Done.");
+    await interaction.reply({
+      ephemeral: true,
+      content:
+        "Done. If there are still messages that aren't supposed to be there, blame Discord, then run the command again",
+    });
   }
 }
