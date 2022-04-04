@@ -97,7 +97,7 @@ export default class extends Command {
               require("../../../../package.json").version as string
             }`,
           });
-        interaction.reply({embeds: [embed]});
+        interaction.reply({ embeds: [embed] });
         break;
       case 400:
         interaction.reply("Error! Contact TLRP staff.");

@@ -36,7 +36,7 @@ export abstract class EvalCommand extends Command {
 
   public chatInputRun(interaction: CommandInteraction) {
     const code = interaction.options.getString("code") as string;
-    const async = interaction.options.getBoolean("async")
+    const async = interaction.options.getBoolean("async");
     if (async) {
       try {
         const evaled = eval(`async () => {${code}}`);
@@ -92,6 +92,5 @@ export abstract class EvalCommand extends Command {
         interaction.reply({ embeds: [embed] });
       }
     }
-    
   }
 }

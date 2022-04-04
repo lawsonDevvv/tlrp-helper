@@ -49,9 +49,9 @@ export default class extends Command {
       .setTitle("Welcome back to the safe zone.")
       .setDescription("Distress signal un-fired. Hope you're safe. :wave:");
 
-    console.log(res.status)
-    console.log(res.data)
-    
+    console.log(res.status);
+    console.log(res.data);
+
     if (interaction.options.getBoolean("toggle")) {
       // if theyre turning it on
       interaction.reply({ embeds: [firedEmbed] });

@@ -24,6 +24,6 @@ export default class extends Command {
   }
 
   chatInputRun(interaction: CommandInteraction) {
-    interaction.reply("This command isn't done. Don't @ me.")
+    interaction.reply("This command isn't done. Don't @ me.");
   }
 }

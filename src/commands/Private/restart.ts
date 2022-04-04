@@ -1,6 +1,10 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import {
+  ApplicationCommandRegistry,
+  Command,
+  CommandOptions,
+} from "@sapphire/framework";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
@@ -46,7 +50,7 @@ export default abstract class extends Command {
     await this.container.client.users.cache
       .get("415278805683404821")
       ?.send({ embeds: [embed2] });
-    
+
     process.exit(0);
   }
 }

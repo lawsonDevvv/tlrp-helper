@@ -1,17 +1,23 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { ApplyOptions } from "@sapphire/decorators";
-import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/framework";
+import {
+  ApplicationCommandRegistry,
+  Command,
+  CommandOptions,
+  RegisterBehavior,
+} from "@sapphire/framework";
 import type { CommandInteraction } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-  description: "!! If you're trying to set your CAD status, wrong command !! Set's the bot's status. Lawson only, bitch.",
+  description:
+    "!! If you're trying to set your CAD status, wrong command !! Set's the bot's status.",
   preconditions: ["OwnerOnly"],
 })
 export default class extends Command {
   registerApplicationCommands(registry: ApplicationCommandRegistry) {
     const builder = new SlashCommandBuilder()
       .setName("setstatus")
-      .setDescription("Set my status!")
+      .setDescription(this.description)
       .addStringOption((option) =>
         option
           .setName("status")
@@ -19,7 +25,9 @@ export default class extends Command {
           .setRequired(false)
       );
 
-    registry.registerChatInputCommand(builder);
+    registry.registerChatInputCommand(builder, {
+      behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
+    });
   }
 
   async chatInputRun(interaction: CommandInteraction) {
