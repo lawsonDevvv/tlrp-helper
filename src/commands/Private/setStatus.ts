@@ -4,7 +4,7 @@ import { ApplicationCommandRegistry, Command, CommandOptions } from "@sapphire/f
 import type { CommandInteraction } from "discord.js";
 
 @ApplyOptions<CommandOptions>({
-  description: "Set's the bot's status. Lawson only, bitch.",
+  description: "!! If you're trying to set your CAD status, wrong command !! Set's the bot's status. Lawson only, bitch.",
   preconditions: ["OwnerOnly"],
 })
 export default class extends Command {
@@ -25,7 +25,7 @@ export default class extends Command {
   async chatInputRun(interaction: CommandInteraction) {
     const status = interaction.options.getString("status");
     await interaction.reply(`Setting status to \`${status}\``);
-    await this.container.client.user?.setActivity(status as string, {
+    this.container.client.user?.setActivity(status as string, {
       type: "PLAYING",
     });
   }
