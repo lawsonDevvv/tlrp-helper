@@ -12,7 +12,7 @@ export default class extends Precondition {
 }
 
 declare module "@sapphire/framework" {
-    interface Preconditions {
-        Staff: never
-    }
+  interface Preconditions {
+    Staff: never;
+  }
 }
