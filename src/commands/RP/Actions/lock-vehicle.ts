@@ -23,7 +23,7 @@ export default class extends Command {
       )
       .addStringOption((o) =>
         o
-          .setName("license_plane")
+          .setName("plate")
           .setDescription(
             "Let's hear that license plate! If your vehicle doesn't have one, you can always leave this blank."
           )
@@ -44,7 +44,7 @@ export default class extends Command {
       .addField("\u200b", "\u200b", true)
       .addField(
         "License Plate",
-        `${interaction.options.getString("license_plate") ?? "None Provided"}`,
+        `${interaction.options.getString("plate") ?? "None Provided"}`,
         true
       )
       .setFooter({ text: "This car cannot be stolen until it is unlocked!" })
