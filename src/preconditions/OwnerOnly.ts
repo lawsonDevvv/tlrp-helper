@@ -1,6 +1,13 @@
 import { Precondition } from "@sapphire/framework";
 import type { CommandInteraction } from "discord.js";
-const disallowedResponses = ["No.", "Nope.", "Stop trying.", "Lawson only.", "Absolutely not.", "Please stop trying."]
+const disallowedResponses = [
+  "No.",
+  "Nope.",
+  "Stop trying.",
+  "Lawson only.",
+  "Absolutely not.",
+  "Please stop trying.",
+];
 
 export class UserPrecondition extends Precondition {
   public async chatInputRun(interaction: CommandInteraction) {
