@@ -18,11 +18,22 @@ export default class extends Command {
     const builder = new SlashCommandBuilder()
       .setName("setstatus")
       .setDescription(this.description)
+      .addStringOption((o) =>
+        o
+          .setName("type")
+          .setDescription("You already know this Lawson...")
+          .addChoice("Watching", "WATCHING")
+          .addChoice("Streaming", "STREAMING")
+          .addChoice("Playing", "PLAYING")
+          .addChoice("Competing", "COMPETING")
+          .addChoice("Listening", "LISTENING")
+          .setRequired(true)
+      )
       .addStringOption((option) =>
         option
           .setName("status")
           .setDescription("Status to change to.")
-          .setRequired(false)
+          .setRequired(true)
       );
 
     registry.registerChatInputCommand(builder, {
@@ -31,10 +42,11 @@ export default class extends Command {
   }
 
   async chatInputRun(interaction: CommandInteraction) {
-    const status = interaction.options.getString("status");
-    await interaction.reply(`Setting status to \`${status}\``);
-    this.container.client.user?.setActivity(status as string, {
-      type: "PLAYING",
-    });
+    const name = interaction.options.getString("status", true);
+    const type = interaction.options.getString("type", true);
+    await interaction.reply(`Setting status to \`${name}\``);
+    /** i ts-ignore'd this because i couldnt be asked to properly set up something, plus pain and suffering.  Cry later.*/
+    // @ts-ignore
+    this.container.client.user?.setActivity(name, { type });
   }
 }
