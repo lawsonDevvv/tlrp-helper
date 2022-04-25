@@ -4,6 +4,7 @@ import {
   ApplicationCommandRegistry,
   Command,
   CommandOptions,
+  RegisterBehavior,
 } from "@sapphire/framework";
 import { CommandInteraction, MessageEmbed } from "discord.js";
 
@@ -30,7 +31,9 @@ export default class extends Command {
           .setRequired(false)
       );
 
-    registry.registerChatInputCommand(builder);
+    registry.registerChatInputCommand(builder, {
+      behaviorWhenNotIdentical: RegisterBehavior.Overwrite
+    });
   }
 
   chatInputRun(interaction: CommandInteraction) {
