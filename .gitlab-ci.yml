@@ -1,10 +1,6 @@
-install dependancies:
-  image: node:15
-  script:
-    - npm i -g yarn typescript
-    - yarn install
 
-build:
+build project:
   image: node:15
   script:
+    - yarn install
     - yarn build
